@@ -36,9 +36,21 @@ const material = new THREE.MeshNormalMaterial();
 const cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
 
-// const cube2 = new THREE.Mesh(geometry, material)
-// cube2.position.y -= 2;
-// cube.add(cube2)
+const cube2 = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.5), material)
+cube2.position.x -= 2;
+cube.add(cube2)
+
+
+//create a blue LineBasicMaterial
+const materialL = new THREE.LineBasicMaterial({color: 0x0000ff});
+const points = [];
+points.push(new THREE.Vector3(-10, 0, 0));
+points.push(new THREE.Vector3(0, 10, 0));
+points.push(new THREE.Vector3(10, 0, 0));
+
+const geometryL = new THREE.BufferGeometry().setFromPoints(points);
+const line = new THREE.Line(geometryL, materialL);
+scene.add(line);
 
 // // LIGHT
 // const dirLight = new THREE.DirectionalLight(0xffffff, 1);
